@@ -4,3 +4,6 @@ __author__ = 'Alexis Salomón'
 
 
 #lapuedopudrir?
+
+num = 7
+print(num)
