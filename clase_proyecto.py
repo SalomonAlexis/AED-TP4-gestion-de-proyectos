@@ -10,13 +10,21 @@ class Proyecto:
         self.url = url
 
     def __str__(self):
-        mensaje = "{:<30}".format('Usuario: ' + str(self.nombre_usuario))
-        mensaje += "{:<30}".format('Repositorio: ' + str(self.repositorio))
-        mensaje += "{:<30}".format('Fecha de actualizacion:' + str(self.fecha_actualizacion))
-        mensaje += "{:<30}".format('Lenguaje: ' + (self.lenguaje))
-        mensaje += "{:<30}".format('Likes: ' + str(self.likes))
-        mensaje += "{:<30}".format('Tags: ' + str(self.tags))
-        mensaje += "{:<30}".format('URL: ' + str(self.url))
+        if self.tags != '':
+            mensaje = "{:<30}".format('Usuario: ' + str(self.nombre_usuario))
+            mensaje += "{:<30}".format('Repositorio: ' + str(self.repositorio))
+            mensaje += "{:<30}".format('Fecha de actualizacion:' + str(self.fecha_actualizacion))
+            mensaje += "{:<30}".format('Lenguaje: ' + (self.lenguaje))
+            mensaje += "{:<30}".format('Likes: ' + str(self.likes))
+            mensaje += "{:<30}".format('Tags: ' + str(self.tags))
+            mensaje += "{:<30}".format('URL: ' + str(self.url))
+        else:
+            mensaje = "{:<30}".format('Usuario: ' + str(self.nombre_usuario))
+            mensaje += "{:<30}".format('Repositorio: ' + str(self.repositorio))
+            mensaje += "{:<30}".format('Fecha de actualizacion:' + str(self.fecha_actualizacion))
+            mensaje += "{:<30}".format('Lenguaje: ' + (self.lenguaje))
+            mensaje += "{:<30}".format('Likes: ' + str(self.likes))
+            mensaje += "{:<30}".format('URL: ' + str(self.url))
 
         return mensaje
 
