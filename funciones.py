@@ -1,6 +1,7 @@
 import os.path
 from clase_proyecto import *
 
+
 def menu():
     print('Menu de Opciones')
     print('1 - Cargar proyectos.')
@@ -66,7 +67,7 @@ def cargar_vector():
 def mostrar_vector(vec):
     n = len(vec)
     for i in range(n):
-        print(vec[i].repositorio)
+        print(vec[i])
 
 
 def csv_to_proyecto(linea):

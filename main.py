@@ -2,8 +2,9 @@ from funciones import *
 
 
 def test():
-    vector = cargar_vector()
-    mostrar_vector(vector)
+    vec = cargar_vector()
+    mostrar_vector(vec)
+
 
 def main():
 
