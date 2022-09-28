@@ -44,8 +44,6 @@ def cargar_vector():
     m = open("proyectos.csv", mode="rt", encoding="utf8")
     num_linea = 0
 
-    print(m)
-
     while True:
         linea = m.readline()
         print(linea)
@@ -55,7 +53,9 @@ def cargar_vector():
 
         if num_linea > 0:
             proyecto = csv_to_proyecto(linea)
-            insercion_ordenada(vec, proyecto)
+
+            if proyecto.lenguaje != "":
+                insercion_ordenada(vec, proyecto)
             
         num_linea += 1
 
