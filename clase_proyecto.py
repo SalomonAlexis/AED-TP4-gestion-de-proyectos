@@ -10,7 +10,6 @@ class Proyecto:
         self.url = url
 
     def __str__(self):
-        mensaje = ""
         mensaje = f'Usuario: {self.nombre_usuario} '
         mensaje += f'Repositorio: {self.repositorio} '
         mensaje += f'Fecha de actualizacion: {self.fecha_actualizacion} '
