@@ -1,0 +1,11 @@
+def menu():
+    print('Menu de Opciones')
+    print('1 - Cargar proyectos.')
+    print('2 - Filtrar por tag.')
+    print('3 - Mostrar cantidad de proyectos por lenguaje.')
+    print('4 - Popularidad.')
+    print('5 - Buscar proyecto actualizado.')
+    print('6 - Guardar populares.')
+    print('7 - Mostrar archivo.')
+    print('8 - Salir.')
+    return int(input('Ingrese su opcion: '))
