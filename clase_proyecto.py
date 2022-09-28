@@ -1,6 +1,3 @@
-__author__ = 'Alexis Salomón'
-
-
 class Proyecto:
     def __init__(self, nombre_usuario, repositorio, descripcion, fecha_actualizacion, lenguaje, likes, tags, url):
         self.nombre_usuario = nombre_usuario
@@ -32,4 +29,3 @@ class Fecha:
     def dia(self):
         return self.dia
 
-# LA LECHE
