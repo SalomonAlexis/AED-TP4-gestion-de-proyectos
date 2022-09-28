@@ -10,14 +10,13 @@ class Proyecto:
         self.url = url
 
     def __str__(self):
-        mensaje = ""
-        mensaje = f'Usuario: {self.nombre_usuario} '
-        mensaje += f'Repositorio: {self.repositorio} '
-        mensaje += f'Fecha de actualizacion: {self.fecha_actualizacion} '
-        mensaje += f'Lenguaje: {self.lenguaje} '
-        mensaje += f'Likes: {self.likes} '
-        mensaje += f'Tags: {self.tags} '
-        mensaje += f'URL: {self.url}'
+        mensaje = "{:<30}".format('Usuario: ' + str(self.nombre_usuario))
+        mensaje += "{:<30}".format('Repositorio: ' + str(self.repositorio))
+        mensaje += "{:<30}".format('Fecha de actualizacion:' + str(self.fecha_actualizacion))
+        mensaje += "{:<30}".format('Lenguaje: ' + (self.lenguaje))
+        mensaje += "{:<30}".format('Likes: ' + str(self.likes))
+        mensaje += "{:<30}".format('Tags: ' + str(self.tags))
+        mensaje += "{:<30}".format('URL: ' + str(self.url))
 
         return mensaje
 
