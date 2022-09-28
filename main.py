@@ -1,6 +1,9 @@
 from funciones import *
 
 
+def test():
+    pass
+
 def main():
 
     vec = []

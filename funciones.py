@@ -1,5 +1,5 @@
 import os.path
-
+from clase_proyecto import *
 
 def menu():
     print('Menu de Opciones')
@@ -55,3 +55,12 @@ def mostrar_vector(vec):
     n = len(vec)
     for i in range(n):
         print(vec[i])
+
+
+def csv_to_proyecto(linea):
+    if linea[-1] == '\n':
+        linea = linea[:-1]
+
+    nueva_linea = linea.split("|")
+    proyecto = Proyecto(nueva_linea[0], nueva_linea[1], nueva_linea[2], nueva_linea[3], nueva_linea[4], nueva_linea[5], nueva_linea[6])
+    return proyecto
