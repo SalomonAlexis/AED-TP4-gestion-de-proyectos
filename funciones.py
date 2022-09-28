@@ -55,7 +55,7 @@ def cargar_vector():
         if num_linea > 0:
             proyecto = csv_to_proyecto(linea)
 
-            if proyecto.lenguaje != "":
+            if proyecto.lenguaje != "" and proyecto.lenguaje != " " :
                 insercion_ordenada(vec, proyecto)
             
         num_linea += 1
