@@ -75,5 +75,9 @@ def csv_to_proyecto(linea):
         linea = linea[:-1]
 
     nueva_linea = linea.split("|")
-    proyecto = Proyecto(nueva_linea[0], nueva_linea[1], nueva_linea[2], nueva_linea[3], nueva_linea[4], nueva_linea[5], nueva_linea[6], nueva_linea[7])
+    if nueva_linea[4] != ' ' and nueva_linea[4] != '': #linea de lenguajes
+        if nueva_linea[6] != '' and nueva_linea[6] != ' ': #linea de tags
+            proyecto = Proyecto(nueva_linea[0], nueva_linea[1], nueva_linea[2], nueva_linea[3], nueva_linea[4], nueva_linea[5], nueva_linea[6], nueva_linea[7])
+        else:
+            proyecto = Proyecto(nueva_linea[0], nueva_linea[1], nueva_linea[2], nueva_linea[3], nueva_linea[4], nueva_linea[5], '', nueva_linea[7])
     return proyecto
