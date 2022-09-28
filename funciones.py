@@ -14,7 +14,7 @@ def menu():
     return int(input('Ingrese su opcion: '))
 
 
-def agregar_ordenado(v, registro):
+def insercion_ordenada(v, registro):
     n = len(v)
     izq = 0
     der = n - 1
@@ -45,7 +45,8 @@ def cargar_vector():
     num_linea = 0
     for linea in m:
         if num_linea > 0:
-            agregar_ordenado(vec, )
+            proyecto = csv_to_proyecto(linea)
+            insercion_ordenada(vec, proyecto)
         num_linea += 1
         m.close()
         return vec
