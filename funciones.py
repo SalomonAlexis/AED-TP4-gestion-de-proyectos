@@ -45,8 +45,7 @@ def cargar_vector():
     num_linea = 0
     for linea in m:
         if num_linea > 0:
-            lineas = str_linea(linea[:-1])
-            agregar_ordenado(vec, lineas)
+            agregar_ordenado(vec, )
         num_linea += 1
         m.close()
         return vec
