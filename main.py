@@ -2,7 +2,8 @@ from funciones import *
 
 
 def test():
-    pass
+    vector = cargar_vector()
+    mostrar_vector(vector)
 
 def main():
 
@@ -31,4 +32,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    test()

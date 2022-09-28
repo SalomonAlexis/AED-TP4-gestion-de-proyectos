@@ -18,14 +18,14 @@ def insercion_ordenada(v, registro):
     n = len(v)
     izq = 0
     der = n - 1
-    pos = 0
+
     while izq <= der:
         c = (izq + der) // 2
-        if v[c].repositorio == registro.repositorio:
+        if v[c].repositorio.lower() == registro.repositorio.lower():
             pos = c
             break
-        if registro.repositorio < v[c].repositorio:
-            der = c + 1
+        if registro.repositorio.lower() < v[c].repositorio.lower():
+            der = c - 1
         else:
             izq = c + 1
 
@@ -43,19 +43,30 @@ def cargar_vector():
 
     m = open("proyectos.csv", mode="rt", encoding="utf8")
     num_linea = 0
-    for linea in m:
+
+    print(m)
+
+    while True:
+        linea = m.readline()
+        print(linea)
+
+        if linea == "":
+            break
+
         if num_linea > 0:
             proyecto = csv_to_proyecto(linea)
             insercion_ordenada(vec, proyecto)
+            
         num_linea += 1
-        m.close()
-        return vec
+
+    m.close()
+    return vec
 
 
 def mostrar_vector(vec):
     n = len(vec)
     for i in range(n):
-        print(vec[i])
+        print(vec[i].repositorio)
 
 
 def csv_to_proyecto(linea):
@@ -63,5 +74,5 @@ def csv_to_proyecto(linea):
         linea = linea[:-1]
 
     nueva_linea = linea.split("|")
-    proyecto = Proyecto(nueva_linea[0], nueva_linea[1], nueva_linea[2], nueva_linea[3], nueva_linea[4], nueva_linea[5], nueva_linea[6])
+    proyecto = Proyecto(nueva_linea[0], nueva_linea[1], nueva_linea[2], nueva_linea[3], nueva_linea[4], nueva_linea[5], nueva_linea[6], nueva_linea[7])
     return proyecto
