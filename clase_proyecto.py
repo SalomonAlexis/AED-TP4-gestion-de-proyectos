@@ -9,6 +9,15 @@ class Proyecto:
         self.tags = tags
         self.url = url
 
+    def __str__(self):
+        mensaje = ""
+        mensaje = f'Usuario: {self.nombre_usuario} '
+        mensaje = f'Repositorio: {self.repositorio} '
+        mensaje += f'Fecha de actualizacion: {self.fecha_actualizacion} '
+        mensaje += f'Lenguaje: {self.lenguaje} '
+        mensaje += f'Likes: {self.likes} '
+        mensaje += f'Tags: {self.tags}'
+        mensaje += f''
 
 class Fecha:
     def __init__(self, dia, mes, año):
