@@ -154,3 +154,15 @@ def encontrar_repositorio(proyecto, vector):
     indice = buscar_por_repositorio(proyecto, vector)
 
     return not indice is None
+
+
+def crear_archivo(nombre, vector):
+    nombre += ".csv"
+    m = open(nombre, mode="wt", encoding="utf8")
+
+    encabezado = "nombre_usuario|repositorio|descripcion|fecha_actualizacion|lenguaje|estrellas|tags|url\n"
+    m.write(encabezado)
+
+    n = len(vector)
+    for i in range(n):
+        linea = vec_to_csv(proyecto)
