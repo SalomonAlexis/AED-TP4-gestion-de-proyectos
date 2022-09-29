@@ -22,8 +22,10 @@ def main():
             tag = input('Ingrese el tag a buscar: ')
             vector_2 = buscar_tag(vec, tag)
 
-            if almacenar == "S":
+            almacenar = validar_opcion("¿Desea almacenar en un nuevo archivo?")
+            if almacenar.lower() == "si":
                 crear_archivo(tag, vector_2)
+                print("Archivo guardado.")
 
         elif opcion == 3:
             pass
