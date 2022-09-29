@@ -3,7 +3,7 @@ from clase_proyecto import *
 
 
 def menu():
-    print('Menu de Opciones')
+    print('\n Menu de Opciones')
     print('1 - Cargar proyectos.')
     print('2 - Filtrar por tag.')
     print('3 - Mostrar cantidad de proyectos por lenguaje.')
@@ -84,6 +84,33 @@ def csv_to_proyecto(linea):
     return proyecto
 
 
+def insercion_ordenada_leng(v, registro):
+    n = len(v)
+    izq = 0
+    der = n - 1
+    pos = 0
+
+    while izq <= der:
+        c = (izq + der) // 2
+        if v[c].lenguaje.lower() == registro.lenguaje.lower():
+            pos = c
+            break
+        if registro.lenguaje.lower() < v[c].lenguaje.lower():
+            der = c - 1
+        else:
+            izq = c + 1
+
+    if izq > der:
+        pos = izq
+
+    v[pos:pos] = [registro]
+
+
+def lenguajes(proyectos):
+    leng = []
+    insercion_ordenada_leng(leng, proyectos)
+    return leng
+
 def estrella(v):
     if v.likes[-1] == 'k':
         cant = v.likes[:-1]
@@ -154,3 +181,8 @@ def encontrar_repositorio(proyecto, vector):
     indice = buscar_por_repositorio(proyecto, vector)
 
     return not indice is None
+
+
+def vec_to_csv(vec):
+    linea = '{},{},{},{}\n'.format(str(vec.nombre_usuario), str(vec.repositorio), str(vec.descripcion), str(vec.fecha_actualizacion), str(vec.lenguaje),  str(vec.likes),  str(vec.tags), str(vec.url))
+    return linea

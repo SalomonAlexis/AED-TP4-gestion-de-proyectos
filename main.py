@@ -2,6 +2,7 @@ from funciones import *
 
 
 def test():
+
     vec = cargar_vector()
     mostrar_vector(vec)
 
@@ -13,13 +14,9 @@ def main():
     while True:
         opcion = menu()
         if opcion == 1:
-            vec, omitidos = cargar_vector()
-            cargados = len(vec)
-            print(f'Se cargaron {cargados} registros y se omitieron {omitidos}.')
-
+            pass
         elif opcion == 2:
-            vector_2 = buscar_tag(vec)
-
+            pass
         elif opcion == 3:
             pass
         elif opcion == 4:
@@ -37,4 +34,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    test()
