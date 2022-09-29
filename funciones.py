@@ -130,9 +130,8 @@ def estrella(v):
     return str(est)
 
 
-def buscar_tag(v):
+def buscar_tag(v, buscado):
     vec_sec = []
-    buscado = input('Coloque el tag a buscar: ')
 
     for i in range(len(v)):
         banderita = False

@@ -19,8 +19,11 @@ def main():
             print(f'Se cargaron {cargados} registros y se omitieron {omitidos}.')
 
         elif opcion == 2:
-            vector_2 = buscar_tag(vec)
-            crear_archivo("linux", vector_2)
+            tag = input('Ingrese el tag a buscar: ')
+            vector_2 = buscar_tag(vec, tag)
+
+            if almacenar == "S":
+                crear_archivo(tag, vector_2)
 
         elif opcion == 3:
             pass
