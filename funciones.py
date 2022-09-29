@@ -19,6 +19,7 @@ def insercion_ordenada(v, registro):
     n = len(v)
     izq = 0
     der = n - 1
+    pos = 0
 
     while izq <= der:
         c = (izq + der) // 2
@@ -46,18 +47,16 @@ def cargar_vector():
     num_linea = 0
 
     while True:
-        linea = m.readline()
-        print(linea)
 
+        linea = m.readline()
         if linea == "":
             break
 
         if num_linea > 0:
             proyecto = csv_to_proyecto(linea)
-
             if proyecto.lenguaje != "" and proyecto.lenguaje != " " :
                 insercion_ordenada(vec, proyecto)
-            
+
         num_linea += 1
 
     m.close()
@@ -75,9 +74,7 @@ def csv_to_proyecto(linea):
         linea = linea[:-1]
 
     nueva_linea = linea.split("|")
-    if nueva_linea[4] != ' ' and nueva_linea[4] != '': #linea de lenguajes
-        if nueva_linea[6] != '' and nueva_linea[6] != ' ': #linea de tags
-            proyecto = Proyecto(nueva_linea[0], nueva_linea[1], nueva_linea[2], nueva_linea[3], nueva_linea[4], nueva_linea[5], nueva_linea[6], nueva_linea[7])
-        else:
-            proyecto = Proyecto(nueva_linea[0], nueva_linea[1], nueva_linea[2], nueva_linea[3], nueva_linea[4], nueva_linea[5], '', nueva_linea[7])
+    proyecto = Proyecto(nueva_linea[0], nueva_linea[1], nueva_linea[2], nueva_linea[3], nueva_linea[4], nueva_linea[5], nueva_linea[6], nueva_linea[7])
     return proyecto
+
+

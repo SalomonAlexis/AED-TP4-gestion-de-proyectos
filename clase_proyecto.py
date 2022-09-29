@@ -10,20 +10,22 @@ class Proyecto:
         self.url = url
 
     def __str__(self):
+
         if self.tags != '':
             mensaje = "{:<30}".format('Usuario: ' + str(self.nombre_usuario))
-            mensaje += "{:<30}".format('Repositorio: ' + str(self.repositorio))
-            mensaje += "{:<30}".format('Fecha de actualizacion:' + str(self.fecha_actualizacion))
+            mensaje += "{:<75}".format('Repositorio: ' + str(self.repositorio))
+            mensaje += "{:<35}".format('Fecha de actualizacion:' + str(self.fecha_actualizacion))
             mensaje += "{:<30}".format('Lenguaje: ' + str(self.lenguaje))
-            mensaje += "{:<30}".format('Likes: ' + str(self.likes))
-            mensaje += "{:<30}".format('Tags: ' + str(self.tags))
+            mensaje += "{:<15}".format('Likes: ' + str(self.likes))
+            mensaje += "{:<150}".format('Tags: ' + str(self.tags))
             mensaje += "{:<30}".format('URL: ' + str(self.url))
+
         else:
             mensaje = "{:<30}".format('Usuario: ' + str(self.nombre_usuario))
-            mensaje += "{:<30}".format('Repositorio: ' + str(self.repositorio))
-            mensaje += "{:<30}".format('Fecha de actualizacion:' + str(self.fecha_actualizacion))
+            mensaje += "{:<75}".format('Repositorio: ' + str(self.repositorio))
+            mensaje += "{:<35}".format('Fecha de actualizacion:' + str(self.fecha_actualizacion))
             mensaje += "{:<30}".format('Lenguaje: ' + str(self.lenguaje))
-            mensaje += "{:<30}".format('Likes: ' + str(self.likes))
+            mensaje += "{:<165}".format('Likes: ' + str(self.likes))
             mensaje += "{:<30}".format('URL: ' + str(self.url))
 
         return mensaje
@@ -47,4 +49,3 @@ class Fecha:
 
     def dia(self):
         return self.dia
-
