@@ -28,7 +28,9 @@ def main():
                 print("Archivo guardado.")
 
         elif opcion == 3:
-            pass
+            vector_lenguajes = buscar_lenguaje(vec)
+            imprimir_vector(vector_lenguajes)
+            
         elif opcion == 4:
             pass
         elif opcion == 5:

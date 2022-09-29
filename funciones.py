@@ -207,3 +207,50 @@ def validar_opcion(mensaje):
     while op.lower() != "si" and op.lower() != "no":
         op = input("Error. Ingrese una opción válida: ")
     return op.lower()
+
+
+def buscar_por_lenguaje(proyecto, vector):
+    n = len(vector)
+
+    izquierda = 0
+    derecha = n - 1
+    indice = None
+
+    if n != 0:
+        while izquierda <= derecha:
+            centro = (izquierda + derecha) // 2
+
+            if proyecto.lenguaje == vector[centro].lenguaje:
+                indice = centro
+                break
+            elif proyecto.lenguaje < vector[centro].lenguaje:
+                derecha = centro - 1
+            else:
+                izquierda = centro + 1
+    
+    return indice
+
+
+def encontrar_lenguaje(proyecto, vector):
+    indice = buscar_por_lenguaje(proyecto, vector)
+
+    return not indice is None
+
+
+def buscar_lenguaje(vector):
+    n = len(vector)
+
+    vector_lenguajes = []
+
+    for i in range(n):
+        if not encontrar_lenguaje(vector[i], vector_lenguajes):
+            vector_lenguajes.append(vector[i].lenguaje)
+
+    return vector_lenguajes
+
+
+def imprimir_vector(vector):
+    n = len(vector)
+
+    for i in range(n):
+        print(vector[i])
