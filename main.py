@@ -2,6 +2,7 @@ from funciones import *
 
 
 def test():
+
     vec = cargar_vector()
     mostrar_vector(vec)
 
@@ -19,7 +20,7 @@ def main():
 
         elif opcion == 2:
             vector_2 = buscar_tag(vec)
-
+            
         elif opcion == 3:
             pass
         elif opcion == 4:
@@ -37,4 +38,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    test()
