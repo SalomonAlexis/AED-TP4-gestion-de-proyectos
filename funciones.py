@@ -39,16 +39,18 @@ def insercion_ordenada(v, registro):
 
 def cargar_vector():
     vec = []
+
     if not os.path.exists('proyectos.csv'):
         print("No existe el archivo.")
         return
 
     m = open("proyectos.csv", mode="rt", encoding="utf8")
-    num_linea = 0
 
+    num_linea = 0
     while True:
 
         linea = m.readline()
+
         if linea == "":
             break
 

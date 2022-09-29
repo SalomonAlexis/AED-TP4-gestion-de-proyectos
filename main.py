@@ -2,7 +2,6 @@ from funciones import *
 
 
 def test():
-
     vec = cargar_vector()
     mostrar_vector(vec)
 
