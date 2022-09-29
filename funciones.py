@@ -199,5 +199,5 @@ def crear_archivo(nombre, vector):
 
 
 def vec_to_csv(vec):
-    linea = '{},{},{},{}\n'.format(str(vec.nombre_usuario), str(vec.repositorio), str(vec.descripcion), str(vec.fecha_actualizacion), str(vec.lenguaje),  str(vec.likes),  str(vec.tags), str(vec.url))
+    linea = '{},{},{},{},{},{},{},{}\n'.format(str(vec.nombre_usuario), str(vec.repositorio), str(vec.descripcion), str(vec.fecha_actualizacion), str(vec.lenguaje),  str(vec.likes),  str(vec.tags), str(vec.url))
     return linea

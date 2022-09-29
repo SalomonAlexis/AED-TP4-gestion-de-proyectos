@@ -20,7 +20,8 @@ def main():
 
         elif opcion == 2:
             vector_2 = buscar_tag(vec)
-            
+            crear_archivo("linux", vector_2)
+
         elif opcion == 3:
             pass
         elif opcion == 4:
@@ -38,4 +39,4 @@ def main():
 
 
 if __name__ == '__main__':
-    test()
+    main()
