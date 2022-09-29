@@ -47,6 +47,7 @@ def cargar_vector():
     m = open("proyectos.csv", mode="rt", encoding="utf8")
 
     num_linea = 0
+    omitidos = 0
     while True:
 
         linea = m.readline()
@@ -56,13 +57,16 @@ def cargar_vector():
 
         if num_linea > 0:
             proyecto = csv_to_proyecto(linea)
-            if proyecto.lenguaje != "" and proyecto.lenguaje != " " :
+
+            if proyecto.lenguaje != "" and proyecto.lenguaje != " " and not encontrar_repositorio(proyecto, vec):
                 insercion_ordenada(vec, proyecto)
+            else:
+                omitidos += 1
 
         num_linea += 1
 
     m.close()
-    return vec
+    return vec, omitidos
 
 
 def mostrar_vector(vec):
@@ -101,15 +105,18 @@ def estrella(v):
 
 def buscar_tag(v):
     vec_sec = []
-    buscado = input('Coloque el tag a buscar')
+    buscado = input('Coloque el tag a buscar: ')
+
     for i in range(len(v)):
         banderita = False
+
         if v[i].tags != '':
             tags = v[i].tags
             tags = tags.split(',')
             for j in range(len(tags)):
                 if tags[j] == buscado:
                     banderita = True
+
         if banderita:
             registro_encontrado = "{:<30}".format('Usuario: ' + v[i].nombre_usuario)
             registro_encontrado += "{:<75}".format('Repositorio: ' + v[i].repositorio)
@@ -117,4 +124,33 @@ def buscar_tag(v):
             registro_encontrado += "{:<30}".format('Estrellas: ' + estrella(v[i]))
             print(registro_encontrado)
             vec_sec.append(v[i])
+            
     return vec_sec
+
+
+def buscar_por_repositorio(proyecto, vector):
+    n = len(vector)
+
+    izquierda = 0
+    derecha = n - 1
+    indice = None
+
+    if n != 0:
+        while izquierda <= derecha:
+            centro = (izquierda + derecha) // 2
+
+            if proyecto.repositorio == vector[centro].repositorio:
+                indice = centro
+                break
+            elif proyecto.repositorio < vector[centro].repositorio:
+                derecha = centro - 1
+            else:
+                izquierda = centro + 1
+    
+    return indice
+
+
+def encontrar_repositorio(proyecto, vector):
+    indice = buscar_por_repositorio(proyecto, vector)
+
+    return not indice is None

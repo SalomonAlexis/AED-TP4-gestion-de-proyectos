@@ -13,9 +13,13 @@ def main():
     while True:
         opcion = menu()
         if opcion == 1:
-            pass
+            vec, omitidos = cargar_vector()
+            cargados = len(vec)
+            print(f'Se cargaron {cargados} registros y se omitieron {omitidos}.')
+
         elif opcion == 2:
-            pass
+            vector_2 = buscar_tag(vec)
+
         elif opcion == 3:
             pass
         elif opcion == 4:
@@ -33,4 +37,4 @@ def main():
 
 
 if __name__ == '__main__':
-    test()
+    main()
