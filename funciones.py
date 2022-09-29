@@ -78,3 +78,41 @@ def csv_to_proyecto(linea):
     return proyecto
 
 
+def estrella(v):
+    if v.likes[-1] == 'k':
+        cant = v.likes[:-1]
+    else:
+        cant = v.likes
+    cant = float(cant)
+    if cant >= 0 and cant <= 10:
+        est = 1
+    elif cant >= 10.1 and cant <= 20:
+        est = 2
+    elif cant >= 20.1 and cant <= 30:
+        est = 3
+    elif cant >= 30.1 and cant <= 40:
+        est = 4
+    elif cant > 40:
+        est = 5
+    return str(est)
+
+
+def buscar_tag(v):
+    vec_sec = []
+    buscado = input('Coloque el tag a buscar')
+    for i in range(len(v)):
+        banderita = False
+        if v[i].tags != '':
+            tags = v[i].tags
+            tags = tags.split(',')
+            for j in range(len(tags)):
+                if tags[j] == buscado:
+                    banderita = True
+        if banderita:
+            registro_encontrado = "{:<30}".format('Usuario: ' + v[i].nombre_usuario)
+            registro_encontrado += "{:<75}".format('Repositorio: ' + v[i].repositorio)
+            registro_encontrado += "{:<35}".format('Fecha de actualizacion:' + v[i].fecha_actualizacion)
+            registro_encontrado += "{:<30}".format('Estrellas: ' + estrella(v[i]))
+            print(registro_encontrado)
+            vec_sec.append(v[i])
+    return vec_sec
