@@ -210,26 +210,16 @@ def validar_opcion(mensaje):
 
 
 def buscar_por_lenguaje(proyecto, vector):
-    n = len(vector)
-
-    izquierda = 0
-    derecha = n - 1
+    lenguaje = proyecto.lenguaje
     indice = None
 
-    if n != 0:
-        while izquierda <= derecha:
-            centro = (izquierda + derecha) // 2
+    n = len(vector)
+    for i in range(n):
+        if lenguaje == vector[i]:
+            indice = i
+            break
 
-            if proyecto.lenguaje == vector[centro].lenguaje:
-                indice = centro
-                break
-            elif proyecto.lenguaje < vector[centro].lenguaje:
-                derecha = centro - 1
-            else:
-                izquierda = centro + 1
-    
     return indice
-
 
 def encontrar_lenguaje(proyecto, vector):
     indice = buscar_por_lenguaje(proyecto, vector)
@@ -241,16 +231,21 @@ def buscar_lenguaje(vector):
     n = len(vector)
 
     vector_lenguajes = []
+    contar_lenguajes = []
 
     for i in range(n):
-        if not encontrar_lenguaje(vector[i], vector_lenguajes):
+        indice = buscar_por_lenguaje(vector[i], vector_lenguajes)
+        if indice is None:
             vector_lenguajes.append(vector[i].lenguaje)
+            contar_lenguajes.append(1)
+        else:
+            contar_lenguajes[indice] += 1
 
-    return vector_lenguajes
+    return vector_lenguajes, contar_lenguajes
 
 
-def imprimir_vector(vector):
-    n = len(vector)
+def imprimir_lenguajes(lenguajes, contador):  # poner mensaje para un solo proyecto
+    n = len(lenguajes)
 
     for i in range(n):
-        print(vector[i])
+        print(f'{lenguajes[i]}: {contador[i]} proyectos.')

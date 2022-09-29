@@ -28,8 +28,8 @@ def main():
                 print("Archivo guardado.")
 
         elif opcion == 3:
-            vector_lenguajes = buscar_lenguaje(vec)
-            imprimir_vector(vector_lenguajes)
+            vector_lenguajes, vector_contador = buscar_lenguaje(vec)
+            imprimir_lenguajes(vector_lenguajes, vector_contador)  # poner mensaje para un solo proyecto
             
         elif opcion == 4:
             pass
