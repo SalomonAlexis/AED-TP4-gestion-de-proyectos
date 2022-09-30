@@ -258,3 +258,12 @@ def mostrar_matriz(matriz):  # que imprima bien
         for columna in fila:
             print(columna, " ", end="")
         print()
+
+
+def sumar_vector(vector):
+    suma = 0
+    
+    for num in vector:
+        suma += num
+
+    return suma

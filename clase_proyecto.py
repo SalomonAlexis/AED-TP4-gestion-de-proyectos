@@ -62,12 +62,3 @@ class Fecha:
     def __str__(self):
         mensaje = f"{self.año}-{self.mes}-{self.dia}"
         return mensaje
-
-    def año(self):
-        return self.año
-
-    def mes(self):
-        return self.mes
-
-    def dia(self):
-        return self.dia

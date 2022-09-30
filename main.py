@@ -8,7 +8,7 @@ def test():
 
 
 def main():
-
+    meses = ('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre')
     vec = []
 
     while True:
@@ -34,6 +34,10 @@ def main():
         elif opcion == 4:
             matriz = generar_matriz(vec)
             mostrar_matriz(matriz)  # que imprima bien
+
+            mes = int(input('Ingrese el mes [1-12]: ')) - 1
+            suma = sumar_vector(matriz[mes])
+            print(f'\nEn el mes de {meses[mes]} se actualizaron {suma} proyectos.')
 
         elif opcion == 5:
             pass
