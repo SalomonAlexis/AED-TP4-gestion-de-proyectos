@@ -80,7 +80,11 @@ def csv_to_proyecto(linea):
         linea = linea[:-1]
 
     nueva_linea = linea.split("|")
-    proyecto = Proyecto(nueva_linea[0], nueva_linea[1], nueva_linea[2], nueva_linea[3], nueva_linea[4], nueva_linea[5], nueva_linea[6], nueva_linea[7])
+
+    fecha = nueva_linea[3].split("-")
+    fecha = Fecha(fecha[2], fecha[1], fecha[0])
+
+    proyecto = Proyecto(nueva_linea[0], nueva_linea[1], nueva_linea[2], fecha, nueva_linea[4], nueva_linea[5], nueva_linea[6], nueva_linea[7])
     return proyecto
 
 
@@ -111,24 +115,6 @@ def lenguajes(proyectos):
     insercion_ordenada_leng(leng, proyectos)
     return leng
 
-def estrella(v):
-    if v.likes[-1] == 'k':
-        cant = v.likes[:-1]
-    else:
-        cant = v.likes
-    cant = float(cant)
-    if cant >= 0 and cant <= 10:
-        est = 1
-    elif cant >= 10.1 and cant <= 20:
-        est = 2
-    elif cant >= 20.1 and cant <= 30:
-        est = 3
-    elif cant >= 30.1 and cant <= 40:
-        est = 4
-    elif cant > 40:
-        est = 5
-    return str(est)
-
 
 def buscar_tag(v, buscado):
     vec_sec = []
@@ -147,7 +133,7 @@ def buscar_tag(v, buscado):
             registro_encontrado = "{:<30}".format('Usuario: ' + v[i].nombre_usuario)
             registro_encontrado += "{:<75}".format('Repositorio: ' + v[i].repositorio)
             registro_encontrado += "{:<35}".format('Fecha de actualizacion:' + v[i].fecha_actualizacion)
-            registro_encontrado += "{:<30}".format('Estrellas: ' + estrella(v[i]))
+            registro_encontrado += "{:<30}".format('Estrellas: ' + v[i].estrella())
             print(registro_encontrado)
             vec_sec.append(v[i])
             
@@ -249,3 +235,26 @@ def imprimir_lenguajes(lenguajes, contador):  # poner mensaje para un solo proye
 
     for i in range(n):
         print(f'{lenguajes[i]}: {contador[i]} proyectos.')
+
+
+def generar_matriz(vector):
+    m = [[0] * 5 for i in range(12)]
+    
+    for proyecto in vector:
+        fila = proyecto.fecha_actualizacion.mes - 1
+        columna = proyecto.estrella() - 1
+
+        m[fila][columna] += 1
+
+    print(m)
+    return m
+
+
+def mostrar_matriz(matriz):  # que imprima bien
+    meses = ('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre')
+    estrellas = (1, 2, 3, 4, 5)
+
+    for fila in matriz:
+        for columna in fila:
+            print(columna, " ", end="")
+        print()

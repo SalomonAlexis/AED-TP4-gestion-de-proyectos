@@ -32,7 +32,9 @@ def main():
             imprimir_lenguajes(vector_lenguajes, vector_contador)  # poner mensaje para un solo proyecto
             
         elif opcion == 4:
-            pass
+            matriz = generar_matriz(vec)
+            mostrar_matriz(matriz)  # que imprima bien
+
         elif opcion == 5:
             pass
         elif opcion == 6:
@@ -40,7 +42,7 @@ def main():
         elif opcion == 7:
             pass
         elif opcion == 8:
-            pass
+            break
         else:
             print("Error. Ingrese una opción válida.")
 

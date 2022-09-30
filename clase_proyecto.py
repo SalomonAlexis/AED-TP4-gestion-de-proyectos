@@ -31,11 +31,33 @@ class Proyecto:
         return mensaje
 
 
+    def estrella(self):
+        if self.likes[-1] == 'k':
+            cant = self.likes[:-1]
+        else:
+            cant = self.likes
+
+        cant = float(cant)
+
+        if cant >= 0 and cant <= 10:
+            est = 1
+        elif cant >= 10.1 and cant <= 20:
+            est = 2
+        elif cant >= 20.1 and cant <= 30:
+            est = 3
+        elif cant >= 30.1 and cant <= 40:
+            est = 4
+        elif cant > 40:
+            est = 5
+
+        return est
+
+
 class Fecha:
     def __init__(self, dia, mes, año):
-        self.dia = dia
-        self.mes = mes
-        self.año = año
+        self.dia = int(dia)
+        self.mes = int(mes)
+        self.año = int(año)
 
     def __str__(self):
         mensaje = f"{self.año}-{self.mes}-{self.dia}"
