@@ -1,6 +1,6 @@
 import os.path
 from clase_proyecto import *
-
+from time import *
 
 def menu():
     print('\n Menu de Opciones')
@@ -132,15 +132,15 @@ def buscar_tag(v, buscado):
         if banderita:
             registro_encontrado = "{:<30}".format('Usuario: ' + v[i].nombre_usuario)
             registro_encontrado += "{:<75}".format('Repositorio: ' + v[i].repositorio)
-            registro_encontrado += "{:<35}".format('Fecha de actualizacion:' + v[i].fecha_actualizacion)
-            registro_encontrado += "{:<30}".format('Estrellas: ' + v[i].estrella())
+            registro_encontrado += "{:<35}".format('Fecha de actualizacion:' + str(v[i].fecha_actualizacion))
+            registro_encontrado += "{:<30}".format('Estrellas: ' + str(v[i].estrella()))
             print(registro_encontrado)
             vec_sec.append(v[i])
             
     return vec_sec
 
 
-def buscar_por_repositorio(proyecto, vector):
+def buscar_por_repositorio(repositorio, vector):
     n = len(vector)
 
     izquierda = 0
@@ -151,10 +151,10 @@ def buscar_por_repositorio(proyecto, vector):
         while izquierda <= derecha:
             centro = (izquierda + derecha) // 2
 
-            if proyecto.repositorio == vector[centro].repositorio:
+            if repositorio == vector[centro].repositorio:
                 indice = centro
                 break
-            elif proyecto.repositorio < vector[centro].repositorio:
+            elif repositorio < vector[centro].repositorio:
                 derecha = centro - 1
             else:
                 izquierda = centro + 1
@@ -163,7 +163,7 @@ def buscar_por_repositorio(proyecto, vector):
 
 
 def encontrar_repositorio(proyecto, vector):
-    indice = buscar_por_repositorio(proyecto, vector)
+    indice = buscar_por_repositorio(proyecto.repositorio, vector)
 
     return not indice is None
 
@@ -269,24 +269,9 @@ def sumar_vector(vector):
     return suma
 
 
-def buscar_repositorio(repositorio, vector):
-    n = len(vector)
+def editar_url(proyecto):
+    url = input('Ingrese la nueva URL: ')
+    proyecto.url = url
 
-    izquierda = 0
-    derecha = n - 1
-    indice = None
-
-    if n != 0:
-        while izquierda <= derecha:
-            centro = (izquierda + derecha) // 2
-
-            if repositorio == vector[centro].repositorio:
-                indice = centro
-                break
-            elif repositorio < vector[centro].repositorio:
-                derecha = centro - 1
-            else:
-                izquierda = centro + 1
-    
-    return indice
-    
+    fecha = strftime("20%y-%m-%d")
+    proyecto.fecha_actualizacion.set(fecha)

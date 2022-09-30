@@ -62,3 +62,18 @@ class Fecha:
     def __str__(self):
         mensaje = f"{self.año}-{self.mes}-{self.dia}"
         return mensaje
+
+    def set(self, fecha):
+        fecha = fecha.split("-")
+        self.dia = int(fecha[2])
+        self.mes = int(fecha[1])
+        self.año = int(fecha[0])
+
+
+class Popularidad:
+    def __init__(self, mes, estrella, cantidad):
+        self.mes = mes
+        self.estrella = estrella
+        self.cantidad = estrella
+
+    

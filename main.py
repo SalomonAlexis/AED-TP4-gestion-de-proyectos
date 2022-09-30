@@ -1,11 +1,8 @@
 from funciones import *
-from time import *
 
 
 def test():
-
-    vec = cargar_vector()
-    mostrar_vector(vec)
+    print(strftime("%y"))
 
 
 def main():
@@ -23,7 +20,7 @@ def main():
             tag = input('Ingrese el tag a buscar: ')
             vector_2 = buscar_tag(vec, tag)
 
-            almacenar = validar_opcion("¿Desea almacenar en un nuevo archivo?")
+            almacenar = validar_opcion("¿Desea almacenar en un nuevo archivo?: ")
             if almacenar.lower() == "si":
                 crear_archivo(tag, vector_2)
                 print("Archivo guardado.")
@@ -42,7 +39,18 @@ def main():
 
         elif opcion == 5:
             rep = input('Ingrese un repositorio: ')
-            
+            indice = buscar_por_repositorio(rep, vec)
+
+            if indice is None:
+                print('Proyecto no encontrado.')
+            else:
+                print(vec[indice])
+                editar = validar_opcion('¿Desea editar la URL? [si/no]: ')
+
+                if editar == 'si':
+                    editar_url(vec[indice])
+                    print(f'URL actualizado con éxito. Fecha de actualización {vec[indice].fecha_actualizacion}.')
+
         elif opcion == 6:
             pass
         elif opcion == 7:
