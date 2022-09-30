@@ -74,6 +74,4 @@ class Popularidad:
     def __init__(self, mes, estrella, cantidad):
         self.mes = mes
         self.estrella = estrella
-        self.cantidad = estrella
-
-    
+        self.cantidad = cantidad

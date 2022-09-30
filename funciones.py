@@ -1,6 +1,7 @@
 import os.path
 from clase_proyecto import *
 from time import *
+from pickle import *
 
 def menu():
     print('\n Menu de Opciones')
@@ -246,7 +247,6 @@ def generar_matriz(vector):
 
         m[fila][columna] += 1
 
-    print(m)
     return m
 
 
@@ -275,3 +275,57 @@ def editar_url(proyecto):
 
     fecha = strftime("20%y-%m-%d")
     proyecto.fecha_actualizacion.set(fecha)
+
+
+def crear_registros(matriz):
+    lista = []
+    filas = len(matriz)
+    columnas = len(matriz[0])
+
+    for i in range(filas):
+        for j in range(columnas):
+            if matriz[i][j] > 0:
+                registro = Popularidad(i, j, matriz[i][j])
+                lista.append(registro)
+    
+    return lista
+
+
+def crear_archivo_bin(vector):
+    m = open("popularidad", mode="wb")
+
+    n = len(vector)
+    for i in range(n):
+        dump(vector[i], m)
+
+    m.close()
+
+
+def generar_vector():
+    nombre_archivo = "popularidad"
+
+    if not os.path.exists(nombre_archivo):
+        print("No existe el archivo.")
+        return
+
+    tamaño = os.path.getsize(nombre_archivo)
+    m = open(nombre_archivo, mode="rb")
+
+    lista = []
+    while m.tell() < tamaño:
+        popularidad = load(m)
+        lista.append(popularidad)
+
+    m.close()
+    return lista
+
+
+def generar_matriz_2(vector):
+    m = [[0] * 5 for i in range(12)]
+    
+    for popularidad in vector:
+        fila = popularidad.mes
+        columna = popularidad.estrella
+        m[fila][columna] = popularidad.cantidad
+
+    return m

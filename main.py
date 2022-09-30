@@ -52,11 +52,17 @@ def main():
                     print(f'URL actualizado con éxito. Fecha de actualización {vec[indice].fecha_actualizacion}.')
 
         elif opcion == 6:
-            pass
+            vector_6 = crear_registros(matriz)
+            crear_archivo_bin(vector_6)
+
         elif opcion == 7:
-            pass
+            vector_7 = generar_vector()
+            matriz_2 = generar_matriz_2(vector_7)
+            mostrar_matriz(matriz_2)
+
         elif opcion == 8:
             break
+        
         else:
             print("Error. Ingrese una opción válida.")
 
