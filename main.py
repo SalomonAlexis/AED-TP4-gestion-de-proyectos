@@ -1,4 +1,5 @@
 from funciones import *
+from time import *
 
 
 def test():
@@ -40,7 +41,8 @@ def main():
             print(f'\nEn el mes de {meses[mes]} se actualizaron {suma} proyectos.')
 
         elif opcion == 5:
-            pass
+            rep = input('Ingrese un repositorio: ')
+            
         elif opcion == 6:
             pass
         elif opcion == 7:

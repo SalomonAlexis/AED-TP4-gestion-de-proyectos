@@ -55,7 +55,7 @@ Se debe dar al usuario la opción de almacenar el listado en un archivo de texto
 
 Mostrar la matriz resultante como una tabla de filas y columnas. Indique, además, cuál es el total de proyectos actualizados en el mes m, siendo m un mes que se ingresa por teclado (valor entero del 1 al 12).
 
-5.) Buscar proyecto actualizado: A partir del vector, buscar un repositorio con el nombre rep, siendo rep  un valor ingresado por teclado. Si existe mostrar sus datos y permitir reemplazar la URL del proyecto que se ingrese por teclado  y cambiar la fecha de actualización por la fecha actual (la fecha no se carga por teclado, investigue la manera de obtener la fecha actual y formatearla de igual manera en la que se encuentra en el archivo. Si no existe indicar con un mensaje de error.
+5.) Buscar proyecto actualizado: A partir del vector, buscar un repositorio con el nombre rep, siendo rep  un valor ingresado por teclado. Si existe mostrar sus datos y permitir reemplazar la URL del proyecto que se ingrese por teclado  y cambiar la fecha de actualización por la fecha actual (la fecha no se carga por teclado, investigue la manera de obtener la fecha actual y formatearla de igual manera en la que se encuentra en el archivo). Si no existe indicar con un mensaje de error.
 
 6.) Guardar populares: A partir de la matriz generada en el punto 4, almacenar su contenido (sólo los elementos mayores a cero) en un archivo binario en el que cada elemento sea un registro en el que se representen los campos:
 

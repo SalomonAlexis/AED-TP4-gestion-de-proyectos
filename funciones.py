@@ -267,3 +267,26 @@ def sumar_vector(vector):
         suma += num
 
     return suma
+
+
+def buscar_repositorio(repositorio, vector):
+    n = len(vector)
+
+    izquierda = 0
+    derecha = n - 1
+    indice = None
+
+    if n != 0:
+        while izquierda <= derecha:
+            centro = (izquierda + derecha) // 2
+
+            if repositorio == vector[centro].repositorio:
+                indice = centro
+                break
+            elif repositorio < vector[centro].repositorio:
+                derecha = centro - 1
+            else:
+                izquierda = centro + 1
+    
+    return indice
+    
