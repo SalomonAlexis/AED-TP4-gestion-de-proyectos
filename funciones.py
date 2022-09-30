@@ -4,7 +4,7 @@ from time import *
 from pickle import *
 
 def menu():
-    print('\n Menu de Opciones')
+    print('\nMenu de Opciones')
     print('1 - Cargar proyectos.')
     print('2 - Filtrar por tag.')
     print('3 - Mostrar cantidad de proyectos por lenguaje.')
@@ -13,7 +13,8 @@ def menu():
     print('6 - Guardar populares.')
     print('7 - Mostrar archivo.')
     print('8 - Salir.')
-    return int(input('Ingrese su opcion: '))
+
+    return int(input('\nIngrese su opcion: '))
 
 
 def insercion_ordenada(v, registro):
