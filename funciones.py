@@ -186,7 +186,7 @@ def crear_archivo(nombre, vector):
 
 
 def vec_to_csv(vec):
-    linea = '{},{},{},{},{},{},{},{}\n'.format(str(vec.nombre_usuario), str(vec.repositorio), str(vec.descripcion), str(vec.fecha_actualizacion), str(vec.lenguaje),  str(vec.likes),  str(vec.tags), str(vec.url))
+    linea = '{}|{}|{}|{}|{}|{}|{}|{}\n'.format(str(vec.nombre_usuario), str(vec.repositorio), str(vec.descripcion), str(vec.fecha_actualizacion), str(vec.lenguaje),  str(vec.likes),  str(vec.tags), str(vec.url))
     return linea
 
 
@@ -232,8 +232,14 @@ def buscar_lenguaje(vector):
     return vector_lenguajes, contar_lenguajes
 
 
-def imprimir_lenguajes(lenguajes, contador):  # poner mensaje para un solo proyecto
+def imprimir_lenguajes(lenguajes, contador):  
     n = len(lenguajes)
+    
+    for i in range(n-1):
+        for j in range(i+1, n):
+            if contador[i] < contador[j]:
+                contador[i], contador[j] = contador[j], contador[i]
+                lenguajes[i], lenguajes[j] = lenguajes[j], lenguajes[i]
 
     for i in range(n):
         print(f'{lenguajes[i]}: {contador[i]} proyectos.')
@@ -251,13 +257,17 @@ def generar_matriz(vector):
     return m
 
 
-def mostrar_matriz(matriz):  # que imprima bien
+def mostrar_matriz(matriz):  
     meses = ('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre')
     estrellas = (1, 2, 3, 4, 5)
-
+    pos = 0
+    print("{:<11}".format('Estrellas') + '|' + "{:<4}".format('1') + '|' + "{:<4}".format('2') + '|' + "{:<4}".format('3') + '|' + "{:<4}".format('4') + '|' + "{:<4}".format('5') + '|')
     for fila in matriz:
+        mensaje = "{:<11}".format(meses[pos]) + '|'
         for columna in fila:
-            print(columna, " ", end="")
+            mensaje += "{:<4}".format(columna) + '|'
+        print(mensaje)
+        pos += 1
         print()
 
 
