@@ -26,6 +26,8 @@ def main():
                 if almacenar.lower() == "si":
                     crear_archivo(tag, vector_2)
                     enter = input("Archivo guardado. Precione enter pata continuar")
+                else:
+                    enter = input("Precione enter pata continuar")
             else:
                 enter = input('Primero ejecute la opcio uno. Precione enter para continuar')
 
