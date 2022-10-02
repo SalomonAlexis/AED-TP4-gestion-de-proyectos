@@ -23,7 +23,7 @@ class Proyecto:
         else:
             mensaje = "{:<30}".format('Usuario: ' + str(self.nombre_usuario))
             mensaje += "{:<75}".format('Repositorio: ' + str(self.repositorio))
-            mensaje += "{:<35}".format('Fecha de actualizacion:' + str(self.fecha_actualizacion))
+            mensaje += "{:<35}".format('Fecha de actualizacion: ' + str(self.fecha_actualizacion))
             mensaje += "{:<30}".format('Lenguaje: ' + str(self.lenguaje))
             mensaje += "{:<165}".format('Likes: ' + str(self.likes))
             mensaje += "{:<30}".format('URL: ' + str(self.url))

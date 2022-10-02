@@ -4,7 +4,7 @@ from time import *
 from pickle import *
 
 def menu():
-    print('\nMenu de Opciones')
+    print('\nMenú de Opciones\n')
     print('1 - Cargar proyectos.')
     print('2 - Filtrar por tag.')
     print('3 - Mostrar cantidad de proyectos por lenguaje.')
@@ -14,7 +14,7 @@ def menu():
     print('7 - Mostrar archivo.')
     print('8 - Salir.')
 
-    return int(input('\nIngrese su opcion: '))
+    return input('\nIngrese su opcion: ')
 
 
 def insercion_ordenada(v, registro):
@@ -121,6 +121,7 @@ def lenguajes(proyectos):
 def buscar_tag(v, buscado):
     vec_sec = []
 
+    print()
     for i in range(len(v)):
         banderita = False
 
@@ -340,3 +341,12 @@ def generar_matriz_2(vector):
         m[fila][columna] = popularidad.cantidad
 
     return m
+
+
+def validar_rango(min, max, mensaje):
+    valor = int(input(mensaje))
+
+    while valor < min or valor > max:
+        valor = int(input(f'Error. Debe ingresar un valor entre {min} y {max}: '))
+
+    return valor
