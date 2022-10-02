@@ -1,12 +1,13 @@
+"""
+Serrat Joaquin 86505 1K11
+Marcellini Camila Abigail 95142 1K12
+Caballero Salomon E. Alexis 99603 1K12
+Moyano Lautaro 89508 1K11
+Gonzalez Lautaro 99536 1K12
+"""
+
 from funciones import *
 
-
-def test():
-    mes = input("jajaajaj: ")
-    while not validar_mes(mes):
-        mes = input("Error. no ingrese cualkquier cxosa señor: ")
-
-    print("felicidades")
 
 def main():
     meses = ('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre')

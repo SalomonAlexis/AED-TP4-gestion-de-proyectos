@@ -341,21 +341,17 @@ def generar_matriz_2(vector):
         m[fila][columna] = popularidad.cantidad
 
     return m
-
+    
 
 def validacion_mes(mes):
     meses = ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
-
-    for i in range(len(meses)):
-        if mes == meses[i]:
-            return True
-    return False
+    return mes in meses
 
 
 def validar_mes(mensaje):
     mes = input(mensaje)
 
-    while not validar_mes(mes):
+    while not validacion_mes(mes):
         mes = input(f'Mes inválido. {mensaje}')
 
-    return mes
+    return int(mes)
