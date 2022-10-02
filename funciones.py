@@ -252,7 +252,7 @@ def generar_matriz(vector):
     for proyecto in vector:
         fila = proyecto.fecha_actualizacion.mes - 1
         columna = proyecto.estrella() - 1
-
+    
         m[fila][columna] += 1
 
     return m
