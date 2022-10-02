@@ -1,6 +1,13 @@
 from funciones import *
 
 
+def test():
+    mes = input("jajaajaj: ")
+    while not validar_mes(mes):
+        mes = input("Error. no ingrese cualkquier cxosa señor: ")
+
+    print("felicidades")
+
 def main():
     meses = ('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre')
     vec = []
@@ -47,7 +54,7 @@ def main():
                 print()
                 matriz = generar_matriz(vec)
                 mostrar_matriz(matriz)  
-                mes = validar_rango(1, 12, "Ingrese el mes [1-12]: ") - 1
+                mes = validar_mes("Ingrese el mes [1-12]: ") - 1
                 suma = sumar_vector(matriz[mes])
                 opcionCuatro = True
                 input(f'\nEn el mes de {meses[mes]} se actualizaron {suma} proyectos. \nPresione enter para continuar. ')

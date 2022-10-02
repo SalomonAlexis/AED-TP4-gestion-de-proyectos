@@ -343,17 +343,19 @@ def generar_matriz_2(vector):
     return m
 
 
-def validar_rango(min, max, mensaje):
-    valor = int(input(mensaje))
+def validacion_mes(mes):
+    meses = ('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12')
 
-    while valor < min or valor > max:
-        valor = int(input(f'Error. Debe ingresar un valor entre {min} y {max}: '))
-
-    return valor
-
-def validar_mes(mes):
-    meses = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
     for i in range(len(meses)):
         if mes == meses[i]:
             return True
     return False
+
+
+def validar_mes(mensaje):
+    mes = input(mensaje)
+
+    while not validar_mes(mes):
+        mes = input(f'Mes inválido. {mensaje}')
+
+    return mes
