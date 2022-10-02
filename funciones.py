@@ -350,3 +350,10 @@ def validar_rango(min, max, mensaje):
         valor = int(input(f'Error. Debe ingresar un valor entre {min} y {max}: '))
 
     return valor
+
+def validar_mes(mes):
+    meses = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+    for i in range(len(meses)):
+        if mes == meses[i]:
+            return True
+    return False
